@@ -239,12 +239,10 @@ tr {
 
   // use the transporter
   transpoter.sendMail(mailOptios, function (error, info) {
-    if (error) {
-      console.log(error);
-      res.status(500).send("Error sending Email");
-    } else {
-      console.log("Email sent", info.response);
+    try {
       res.status(200).send("Email sent successfully");
+    } catch (error) {
+      res.status(500).send("Error sending Email");
     }
   });
 });

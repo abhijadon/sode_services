@@ -66,8 +66,11 @@ router.post("/form", function (req, res) {
     "') ";
 
   con.query(sql, function (error, result) {
-    if (error) throw error;
-    res.send("Form data added successfully" + result.insertID);
+    try {
+      res.send("Form data added successfully" + result.insertID);
+    } catch (error) {
+      throw error;
+    }
   });
 });
 
