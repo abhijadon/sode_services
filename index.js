@@ -10,13 +10,9 @@ qs = require("querystring");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(
-    {
-        origin: ["https://sode-services-wmcx.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+app.use(
+  cors({ origin: ["http://localhost:3000", "https://sode-services-wmcx.vercel.app"] })
+);
 dotenv.config();
 const http = require("http");
 
