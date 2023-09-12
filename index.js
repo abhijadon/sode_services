@@ -10,9 +10,13 @@ qs = require("querystring");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  cors({ origin: ["http://localhost:3000", "https://doc.university360.co/"] })
-);
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-frontend.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 dotenv.config();
 const http = require("http");
 
