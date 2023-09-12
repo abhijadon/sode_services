@@ -93,21 +93,21 @@ const Form = () => {
     setIsSubmit(true);
 
     await Promise.all([
-      fetch(`${process.env.REACT_APP_HOST}/api/form`, {
+      fetch("https://sode-services.vercel.app/api/form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }),
-      fetch(`${process.env.REACT_APP_HOST}/api/sheet`, {
+      fetch("https://sode-services.vercel.app/api/sheet", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }),
-      fetch(`${process.env.REACT_APP_HOST}/api/email`, {
+      fetch("https://sode-services.vercel.app/api/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
