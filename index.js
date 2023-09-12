@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(
     {
-        origin: ["https://sode-services.vercel.app"],
+        origin: ["https://sode-services-wmcx.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true
     }
