@@ -191,6 +191,15 @@ const Form = () => {
     setSubcourse(e.target.value)
   }
 
+  const handleYear = (event) => {
+    setPassingyear(event.target.value);
+  };
+
+  const years = Array.from(
+    { length: 50 },
+    (_, index) => new Date().getFullYear() - index
+  );
+
   return (
     <section className="md:w-full min-w-full">
       <ToastContainer
@@ -243,7 +252,7 @@ const Form = () => {
                 University
               </label>
               <div className="relative">
-                <select
+                <select required
                   name="university"
                   value={university}
                   onChange={changeUniversity}
@@ -275,7 +284,7 @@ const Form = () => {
                 Certificate
               </label>
               <div className="relative">
-                <select
+                <select required
                   name="certificate"
                   value={certificate}
                   onChange={handleChange}
@@ -322,7 +331,7 @@ const Form = () => {
                 Name
               </label>
 
-              <input
+              <input required
                 name="name"
                 value={name}
                 onChange={handleChange}
@@ -340,7 +349,7 @@ const Form = () => {
               >
                 Mother Name
               </label>
-              <input
+              <input required
                 name="mothername"
                 value={mothername}
                 onChange={handleChange}
@@ -357,7 +366,7 @@ const Form = () => {
               >
                 Father Name
               </label>
-              <input
+              <input required
                 name="fathername"
                 value={fathername}
                 onChange={handleChange}
@@ -393,7 +402,7 @@ const Form = () => {
               >
                 Email-id
               </label>
-              <input
+              <input required
                 name="email"
                 value={email}
                 onChange={handleChange}
@@ -426,7 +435,7 @@ const Form = () => {
               >
                 Date of Birth
               </label>
-              <input
+              <input required
                 name="dob"
                 value={dob}
                 onChange={handleChange}
@@ -459,7 +468,7 @@ const Form = () => {
                   Course
                 </label>
                 <div className="relative">
-                  <select
+                  <select required
                     onChange={changeCourses}
                     name="certificate"
                     value={course}
@@ -492,7 +501,7 @@ const Form = () => {
                   Subcourse
                 </label>
                 <div className="relative">
-                  <select
+                  <select required
                     name="certificate"
                     value={subcourse}
                     onChange={changeSubcourse}
@@ -522,13 +531,13 @@ const Form = () => {
                 >
                   Enrollment number
                 </label>
-                <input
+                <input required
                   name="enrollment"
                   value={enrollment}
                   onChange={handleChange}
                   className="appearance-none block w-full  text-gray-700 border border-gray-400 rounded py-1.5  px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="enrollment"
-                  type="number"
+                  type="text"
                   placeholder="Enter your alternate-number"
                 />
               </div>
@@ -539,15 +548,24 @@ const Form = () => {
                 >
                   Passing year
                 </label>
-                <input
+                <select
+                  required
                   name="passingyear"
                   value={passingyear}
-                  onChange={handleChange}
+                  onChange={handleYear}
                   className="appearance-none block w-full  text-gray-700 border border-gray-400 rounded py-1.5  px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="passingyear"
                   type="date"
                   placeholder="Enter your Passing year"
-                />
+                >
+                  <option value="selected year">--Select Year--</option>
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+
               </div>
             </div>
           </div>
@@ -570,7 +588,7 @@ const Form = () => {
                 >
                   Country
                 </label>
-                <input
+                <input required
                   name="country"
                   value={country}
                   onChange={handleChange}
@@ -588,7 +606,7 @@ const Form = () => {
                 >
                   State
                 </label>
-                <input
+                <input required
                   name="state"
                   value={state}
                   onChange={handleChange}
@@ -605,7 +623,7 @@ const Form = () => {
                 >
                   City
                 </label>
-                <input
+                <input required
                   name="city"
                   value={city}
                   onChange={handleChange}
@@ -622,7 +640,7 @@ const Form = () => {
                 >
                   Zipcode
                 </label>
-                <input
+                <input required
                   name="zipcode"
                   value={zipcode}
                   onChange={handleChange}
@@ -639,7 +657,7 @@ const Form = () => {
                 >
                   post-office
                 </label>
-                <input
+                <input required
                   name="postoffice"
                   value={postoffice}
                   onChange={handleChange}
@@ -656,7 +674,7 @@ const Form = () => {
                 >
                   House No./apartment/street
                 </label>
-                <input
+                <input required
                   name="house"
                   value={house}
                   onChange={handleChange}
@@ -680,7 +698,7 @@ const Form = () => {
             </div>
             <div className="relative flex justify-center md:justify-start items-center md:left-24 pl-3.5 md:pl-2 mt-2">
               <label>
-                <input
+                <input required
                   type="checkbox"
                   className="relative top-0.5 -left-1 md:-left-2"
                 />

@@ -1,11 +1,13 @@
 const express = require("express");
 const con = require("./middleware/mysql");
 const cors = require("cors");
-const fs = require("fs");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 port = process.env.PORT || 5000;
 const app = express();
+fs = require("fs");
+qs = require("querystring");
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
@@ -34,6 +36,7 @@ app.get("/", function (req, res) {
 app.use("/api", require("./routes/email"));
 app.use("/api", require("./routes/sheet"));
 app.use("/api", require("./routes/form"));
+app.use("/api", require("./routes/payment"));
 
 //connect to localhost
 app.listen(port, () => {

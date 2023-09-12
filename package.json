@@ -22,6 +22,7 @@
     "google-auth-library": "^8.9.0",
     "google-spreadsheet": "^4.0.2",
     "googleapis": "^123.0.0",
+    "jssha": "^3.3.1",
     "mongoose": "^6.10.0",
     "mysql": "^2.18.1",
     "mysql-schema": "^1.0.0",
